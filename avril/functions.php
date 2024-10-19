@@ -5,7 +5,7 @@ function avril_setup() {
 /**
  * Define Theme Version
  */
-define( 'AVRIL_THEME_VERSION', '10.7' );
+define( 'AVRIL_THEME_VERSION', '10.8' );
 
 // Root path/URI.
 define( 'AVRIL_PARENT_DIR', get_template_directory() );
