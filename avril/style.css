@@ -4,8 +4,8 @@ Theme URI: https://www.nayrathemes.com/avril-free/
 Author: Nayra Themes
 Author URI: https://www.nayrathemes.com/
 Description: Avril is flexible, super fast, easily customizable, lightweight, modern multipurpose theme. Avril comes with everything you could ever need to build an amazing website, and It's perfect for any type of business. View the demo of Avril Pro https://www.nayrathemes.com/demo/pro/?theme=avril
-Version: 17.5
-Tested up to: 6.8
+Version: 19.3
+Tested up to: 6.9
 Requires PHP: 5.6
 Requires at least: 4.7
 License: GPLv3 or later
@@ -692,4 +692,74 @@ a.wp-block-latest-posts__post-title {
 a.wp-block-button__link:focus {
 	color: #fff;
 	text-decoration: none;
+}
+
+.post.grid-view-news-area ul.wp-block-rss {
+	list-style: disc;
+}
+
+.post .wp-block-archives li {
+	padding-bottom: 0.625rem;
+}
+
+.widget .wp-block-embed .wp-element-caption a {
+	color: inherit;
+}
+
+.sidebar .widget .textwidget a span{
+	color: inherit;
+}
+
+.wp-block-file .wp-block-file__button {
+   text-decoration: none;
+   border: none;
+}
+
+select:focus,
+.form-control:focus {
+	border-color: rgb(255, 33, 79);
+	box-shadow: 0 0 5px rgba(255, 33, 79, 1);
+}
+
+.input-group > .form-control:focus,
+.input-group > .custom-select:focus,
+.input-group > .custom-file:focus {
+	z-index: 0;
+}
+
+.sidebar .widget .wp-block-group .wp-block-embed {
+	margin: 0;
+}
+
+table.wc-block-cart-items .wc-block-cart-items__row .wc-block-cart-item__quantity .wc-block-cart-item__remove-link {
+ text-decoration: none !important;
+}
+
+.footer-sidebar .widget .wp-block-group .wp-block-verse {
+ 	    background: #202020;
+ 	    color: #cccccc;
+}
+
+.widget .wp-block-quote {
+	color: inherit;
+}
+
+.sidebar .widget .wp-block-group .wp-block-preformatted a {
+	text-decoration: underline;
+}
+
+.entry-content ul.wp-block-post-template li.wp-block-post:hover {
+	box-shadow: none;
+}
+
+.wp-block-image .alignleft figcaption {   
+	text-align: left; 
+}
+
+.wp-block-button.is-style-outline a.wp-block-button__link {
+    color: inherit;
+}
+
+.wp-block-button.is-style-outline a.wp-block-button__link {
+ 	border-color: inherit;
 }
