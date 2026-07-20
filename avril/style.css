@@ -4,10 +4,10 @@ Theme URI: https://www.nayrathemes.com/avril-free/
 Author: Nayra Themes
 Author URI: https://www.nayrathemes.com/
 Description: Avril is flexible, super fast, easily customizable, lightweight, modern multipurpose theme. Avril comes with everything you could ever need to build an amazing website, and It's perfect for any type of business. View the demo of Avril Pro https://www.nayrathemes.com/demo/pro/?theme=avril
-Version: 21.5
+Version: 21.7
 Tested up to: 7.0
 Requires PHP: 7.4
-Requires at least: 4.7
+Requires at least: 6.8
 License: GPLv3 or later
 License URI:  https://www.gnu.org/licenses/gpl-3.0.html
 Text Domain: avril
@@ -845,4 +845,9 @@ table.wc-block-cart-items .wc-block-cart-items__row .wc-block-cart-item__quantit
 	border-radius: 16px;
 	overflow: hidden;
 	margin-block: 2rem;
+}
+
+.wc-block-components-totals-footer-item .wc-block-components-totals-item__label,
+ .wc-block-components-totals-footer-item .wc-block-components-totals-item__value {
+	font-weight: 600;
 }
