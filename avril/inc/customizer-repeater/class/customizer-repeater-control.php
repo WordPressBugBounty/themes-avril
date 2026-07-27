@@ -2,6 +2,8 @@
 	return null;
 }
 
+require_once get_template_directory() . '/inc/fa.php';
+
 class AVRIL_Repeater extends WP_Customize_Control {
 
 	public $id;
@@ -135,7 +137,7 @@ class AVRIL_Repeater extends WP_Customize_Control {
 
 	/*Enqueue resources for the control*/
 	public function enqueue() {
-		wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/assets/css/fonts/font-awesome/css/font-awesome.min.css', array(), 999 );
+		wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/assets/css/all.min.css', array(), 999 );
 
 		wp_enqueue_style( 'avril_customizer-repeater-admin-stylesheet', get_template_directory_uri() . '/inc/customizer-repeater/css/admin-style.css', array(), 999 );
 
@@ -614,7 +616,7 @@ class AVRIL_Repeater extends WP_Customize_Control {
 			<div class="input-group icp-container">
 				<input data-placement="bottomRight" class="icp icp-auto" value="<?php if(!empty($value)) { echo esc_attr( $value );} ?>" type="text">
 				<span class="input-group-addon">
-                    <i class="fa <?php echo esc_attr($value); ?>"></i>
+                   <i class="<?php echo esc_attr( avril_fa_class( $social_icon['icon'] ) ); ?>"></i>
                 </span>
 			</div>
             <?php get_template_part( $this->customizer_icon_container ); ?>
@@ -730,7 +732,7 @@ class AVRIL_Repeater extends WP_Customize_Control {
 				<div class="customizer-repeater-social-repeater-container">
 					<div class="customizer-repeater-rc input-group icp-container">
 						<input data-placement="bottomRight" class="icp icp-auto" value="<?php if(!empty($value)) { echo esc_attr( $value ); } ?>" type="text">
-						<span class="input-group-addon"></span>
+						<span class="input-group-addon"><i></i></span>
 					</div>
 					<?php get_template_part( $this->customizer_icon_container ); ?>
 					<input type="text" class="customizer-repeater-social-repeater-link team_linkdata_<?php echo $avril_limit;?> <?php echo esc_attr($avril_type_with_id);?>"
@@ -752,7 +754,7 @@ class AVRIL_Repeater extends WP_Customize_Control {
 					<div class="customizer-repeater-social-repeater-container">
 						<div class="customizer-repeater-rc input-group icp-container">
 							<input data-placement="bottomRight" class="icp icp-auto team_data_<?php echo esc_attr($avril_limit);?> <?php echo esc_attr($avril_type_with_id);?>" value="<?php if( !empty($social_icon['icon']) ) { echo esc_attr( $social_icon['icon'] ); } ?>" type="text">
-							<span class="input-group-addon"><i class="fa <?php echo esc_attr( $social_icon['icon'] ); ?>"></i></span>
+							<span class="input-group-addon"> <i class="<?php echo esc_attr( avril_fa_class( $social_icon['icon'] ) ); ?>"></i></span>
 						</div>
 						<?php get_template_part( $this->customizer_icon_container ); ?>
 						<input type="text" class="customizer-repeater-social-repeater-link"

@@ -15,12 +15,13 @@
  * Sanitization callback for 'checkbox' type controls. This callback sanitizes `$checked`
  * as a boolean value, either TRUE or FALSE.
  *
- * @param bool $checked Whether the checkbox is checked.
+ * @param  bool $checked Whether the checkbox is checked.
  * @return bool Whether the checkbox is checked.
  */
-function avril_sanitize_checkbox( $checked ) {
-	// Boolean check.
-	return ( ( isset( $checked ) && true == $checked ) ? true : false );
+function avril_sanitize_checkbox( $checked )
+{
+    // Boolean check.
+    return ( ( isset($checked) && true == $checked ) ? true : false );
 }
 
 /**
@@ -37,11 +38,12 @@ function avril_sanitize_checkbox( $checked ) {
  * 
  * @see wp_filter_post_kses() https://developer.wordpress.org/reference/functions/wp_filter_post_kses/
  *
- * @param string $html HTML to sanitize.
+ * @param  string $html HTML to sanitize.
  * @return string Sanitized HTML.
  */
-function avril_sanitize_html( $html ) {
-	return wp_kses_post( force_balance_tags( $html ) );
+function avril_sanitize_html( $html )
+{
+    return wp_kses_post(force_balance_tags($html));
 }
 
 
@@ -59,16 +61,17 @@ function avril_sanitize_html( $html ) {
  * 
  * @see absint() https://developer.wordpress.org/reference/functions/absint/
  *
- * @param int                  $number  Number to sanitize.
- * @param WP_Customize_Setting $setting Setting instance.
+ * @param  int                  $number  Number to sanitize.
+ * @param  WP_Customize_Setting $setting Setting instance.
  * @return int Sanitized number; otherwise, the setting default.
  */
-function avril_sanitize_number_absint( $number, $setting ) {
-	// Ensure $number is an absolute integer (whole number, zero or greater).
-	$number = absint( $number );
-	
-	// If the input is an absolute integer, return it; otherwise, return the default
-	return ( $number ? $number : $setting->default );
+function avril_sanitize_number_absint( $number, $setting )
+{
+    // Ensure $number is an absolute integer (whole number, zero or greater).
+    $number = absint($number);
+    
+    // If the input is an absolute integer, return it; otherwise, return the default
+    return ( $number ? $number : $setting->default );
 }
 
 
@@ -83,30 +86,31 @@ function avril_sanitize_number_absint( $number, $setting ) {
  * 
  * @see absint() https://developer.wordpress.org/reference/functions/absint/
  *
- * @param int                  $number  Number to check within the numeric range defined by the setting.
- * @param WP_Customize_Setting $setting Setting instance.
+ * @param  int                  $number  Number to check within the numeric range defined by the setting.
+ * @param  WP_Customize_Setting $setting Setting instance.
  * @return int|string The number, if it is zero or greater and falls within the defined range; otherwise,
  *                    the setting default.
  */
-function avril_sanitize_range_value( $number, $setting ) {
-	
-	// Ensure input is an absolute integer.
-	$number = absint( $number );
-	
-	// Get the input attributes associated with the setting.
-	$atts = $setting->manager->get_control( $setting->id )->input_attrs;
-	
-	// Get minimum number in the range.
-	$min = ( isset( $atts['min'] ) ? $atts['min'] : $number );
-	
-	// Get maximum number in the range.
-	$max = ( isset( $atts['max'] ) ? $atts['max'] : $number );
-	
-	// Get step.
-	$step = ( isset( $atts['step'] ) ? $atts['step'] : 1 );
-	
-	// If the number is within the valid range, return it; otherwise, return the default
-	return ( $min <= $number && $number <= $max && is_int( $number / $step ) ? $number : $setting->default );
+function avril_sanitize_range_value( $number, $setting )
+{
+    
+    // Ensure input is an absolute integer.
+    $number = absint($number);
+    
+    // Get the input attributes associated with the setting.
+    $atts = $setting->manager->get_control($setting->id)->input_attrs;
+    
+    // Get minimum number in the range.
+    $min = ( isset($atts['min']) ? $atts['min'] : $number );
+    
+    // Get maximum number in the range.
+    $max = ( isset($atts['max']) ? $atts['max'] : $number );
+    
+    // Get step.
+    $step = ( isset($atts['step']) ? $atts['step'] : 1 );
+    
+    // If the number is within the valid range, return it; otherwise, return the default
+    return ( $min <= $number && $number <= $max && is_int($number / $step) ? $number : $setting->default );
 }
 
 
@@ -122,20 +126,21 @@ function avril_sanitize_range_value( $number, $setting ) {
  * @see sanitize_key()               https://developer.wordpress.org/reference/functions/sanitize_key/
  * @see $wp_customize->get_control() https://developer.wordpress.org/reference/classes/wp_customize_manager/get_control/
  *
- * @param string               $input   Slug to sanitize.
- * @param WP_Customize_Setting $setting Setting instance.
+ * @param  string               $input   Slug to sanitize.
+ * @param  WP_Customize_Setting $setting Setting instance.
  * @return string Sanitized slug if it is a valid choice; otherwise, the setting default.
  */
-function avril_sanitize_select( $input, $setting ) {
-	
-	// Ensure input is a slug.
-	$input = sanitize_key( $input );
-	
-	// Get list of choices from the control associated with the setting.
-	$choices = $setting->manager->get_control( $setting->id )->choices;
-	
-	// If the input is a valid key, return it; otherwise, return the default.
-	return ( array_key_exists( $input, $choices ) ? $input : $setting->default );
+function avril_sanitize_select( $input, $setting )
+{
+    
+    // Ensure input is a slug.
+    $input = sanitize_key($input);
+    
+    // Get list of choices from the control associated with the setting.
+    $choices = $setting->manager->get_control($setting->id)->choices;
+    
+    // If the input is a valid key, return it; otherwise, return the default.
+    return ( array_key_exists($input, $choices) ? $input : $setting->default );
 }
 
 /**
@@ -151,22 +156,25 @@ function avril_sanitize_select( $input, $setting ) {
  * 
  * @see esc_url_raw() https://developer.wordpress.org/reference/functions/esc_url_raw/
  *
- * @param string $url URL to sanitize.
+ * @param  string $url URL to sanitize.
  * @return string Sanitized URL.
  */
-function avril_sanitize_url( $url ) {
-	return esc_url_raw( $url );
+function avril_sanitize_url( $url )
+{
+    return esc_url_raw($url);
 }
 
 
 /* Sanitization Text*/
-function avril_sanitize_text( $text ) {
-	return wp_filter_post_kses( $text );
+function avril_sanitize_text( $text )
+{
+    return wp_filter_post_kses($text);
 }
 
 /* Sanitization Integer*/
-function avril_sanitize_integer( $input ) {
-    if( is_numeric( $input ) ) {
-        return intval( $input );
+function avril_sanitize_integer( $input )
+{
+    if(is_numeric($input) ) {
+        return intval($input);
     }
 }

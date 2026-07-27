@@ -15,8 +15,8 @@
     letter-spacing: 1px;
     line-height: 1;
     text-transform: uppercase;
-	color: #3292db;
-	border-left: 5px solid #0073aa;
+    color: #3292db;
+    border-left: 5px solid #0073aa;
 }
 
 .customize-control-hidden label {
@@ -75,25 +75,25 @@ h2.avril-notice-h2 {
 
 /* Upsale */
 .premium_info ul {
-	margin: 0;
-	padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 .premium_info ul li {
-	margin-bottom: 10px;
+    margin-bottom: 10px;
 }
 
 .premium_info ul li a, .up-to-pro {
-	font-family: 'Noto Sans', sans-serif;
+    font-family: 'Noto Sans', sans-serif;
     font-weight: bold;
-	padding: 15px 10px;
-	display: block;
-	text-decoration: none;
-	color: #ffffff;
-	border-radius: 3px;
-	font-size: 12px;
+    padding: 15px 10px;
+    display: block;
+    text-decoration: none;
+    color: #ffffff;
+    border-radius: 3px;
+    font-size: 12px;
     letter-spacing: 1.4px;
-	overflow: hidden;
+    overflow: hidden;
     -webkit-transition: .3s;
     transition: .3s;
     background: -webkit-linear-gradient(300deg, #2d1582 0%, #19a0ff 100%);
@@ -102,9 +102,9 @@ h2.avril-notice-h2 {
 }
 .premium_info ul li a:hover, .premium_info ul li a:focus,
 .up-to-pro:hover, .up-to-pro:focus {
-	transform: translateY(-3px);
+    transform: translateY(-3px);
     color: #fff;
-    box-shadow: 0 0.5rem 1.875rem rgba(0, 0, 0, 0.15);	
+    box-shadow: 0 0.5rem 1.875rem rgba(0, 0, 0, 0.15);    
 }
 .show-love {
     background-image: -webkit-linear-gradient( 90deg, #e4aa00 0%, #fddb3e 100%) !important;
@@ -114,12 +114,12 @@ h2.avril-notice-h2 {
     text-transform: capitalize;
 }
 .premium_info ul li a i{
-	font-size: 13px;
-	margin-top: 3px;
-	margin-right: 5px;
+    font-size: 13px;
+    margin-top: 3px;
+    margin-right: 5px;
 }
 .premium_info .upgrade-to-pro, .up-to-pro{
-	background: -webkit-linear-gradient(300deg, #f24259  0%, #b7279fb5 100%);
+    background: -webkit-linear-gradient(300deg, #f24259  0%, #b7279fb5 100%);
     background: linear-gradient(150deg, #f24259 0%, #b7279fb5  100%);
 }
 li#accordion-section-upgrade_premium .accordion-section-title:after {
@@ -128,8 +128,8 @@ li#accordion-section-upgrade_premium .accordion-section-title:after {
 }
 li#accordion-section-upgrade_premium .accordion-section-title,
 li#accordion-section-upgrade_premium .accordion-section-title:hover {
-	color: #ffffff !important;
+    color: #ffffff !important;
     background: -webkit-linear-gradient(300deg, #2d1582 0%, #19a0ff 100%) !important;
-    background: linear-gradient(150deg, #2d1582 0%, #19a0ff 100%) !important;	
-	border-left: none;
+    background: linear-gradient(150deg, #2d1582 0%, #19a0ff 100%) !important;    
+    border-left: none;
 }

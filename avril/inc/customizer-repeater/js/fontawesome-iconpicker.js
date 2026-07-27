@@ -1,67 +1,149 @@
 (function ($) {
-    'use strict';
+    "use strict";
+
     wp.avrilcustomizerRepeater = {
 
         init: function () {
-            $('.iconpicker-items>i').on('click', function () {
-                var iconClass = $(this).attr('class').slice(3);
-                var classInput = $(this).parents('.iconpicker-popover').prev().find('.icp');
-                classInput.val(iconClass);
-                classInput.attr('value', iconClass);
 
-                var iconPreview = classInput.next('.input-group-addon');
-                var iconElement = '<i class="fa '.concat(iconClass, '"><\/i>');
-                iconPreview.empty();
-                iconPreview.append(iconElement);
+            $(document).on(
+                "click", ".iconpicker-items > i", function (e) {
 
-                var th = $(this).parent().parent().parent();
-                classInput.trigger('change');
-                avril_customizer_repeater_refresh_social_icons(th);
-                return false;
-            });
+                    e.preventDefault();
+
+                    var oldIcon = $(this).data("value") || "";
+                    var newClass = $(this).attr("class") || "";
+
+                    var classInput = $(this)
+                    .closest(".iconpicker-popover")
+                    .prev(".icp-container")
+                    .find(".icp");
+
+                    if (!classInput.length) {
+                        return false;
+                    }
+
+                    /*
+                    * Store FA4 key in Customizer.
+                    * Example:
+                    * fa-search
+                    */
+                    classInput.val(oldIcon);
+                    classInput.attr("value", oldIcon);
+
+                    /*
+                    * Preview latest FA7 icon.
+                    * Example:
+                    * fa-solid fa-magnifying-glass
+                    */
+                    classInput
+                    .next(".input-group-addon")
+                    .html("<i class=\"" + newClass + "\"></i>");
+
+                    classInput.trigger("change");
+
+                    var repeater = classInput.closest(".customizer-repeater-social-repeater");
+
+                    if (typeof avril_customizer_repeater_refresh_social_icons === "function") {
+                        avril_customizer_repeater_refresh_social_icons(repeater);
+                    }
+
+                    $(this)
+                    .closest(".iconpicker-popover")
+                    .removeClass("iconpicker-visible");
+
+                    return false;
+                }
+            );
+
         },
+
         search: function ($searchField) {
-            var itemsList = $searchField.parent().next().find('.iconpicker-items');
-            var searchTerm = $searchField.val().toLowerCase();
-            if (searchTerm.length > 0) {
-                itemsList.children().each(function () {
-                    if ($(this).filter('[title*='.concat(searchTerm)).length > 0 || searchTerm.length < 1) {
+
+            var searchTerm = $.trim($searchField.val()).toLowerCase();
+
+            var items = $searchField
+                .closest(".iconpicker-popover")
+                .find(".iconpicker-items > i");
+
+            if (!searchTerm.length) {
+                items.show();
+                return;
+            }
+
+            items.each(
+                function () {
+
+                    var title = ($(this).attr("title") || "").toLowerCase();
+                    var value = ($(this).data("value") || "").toLowerCase();
+
+                    if (title.indexOf(searchTerm) !== -1 
+                        || value.indexOf(searchTerm) !== -1
+                    ) {
                         $(this).show();
                     } else {
                         $(this).hide();
                     }
-                });
-            } else {
-                itemsList.children().show();
-            }
+
+                }
+            );
+
         },
+
         iconPickerToggle: function ($input) {
-            var iconPicker = $input.parent().next();
-            iconPicker.addClass('iconpicker-visible');
+
+            $(".iconpicker-popover")
+                .not($input.parent().next())
+                .removeClass("iconpicker-visible");
+
+            $input
+                .parent()
+                .next(".iconpicker-popover")
+                .toggleClass("iconpicker-visible");
+
         }
+
     };
 
-    $(document).ready(function () {
-        wp.avrilcustomizerRepeater.init();
+    $(
+        function () {
 
-        $('.iconpicker-search').on('keyup', function () {
-            wp.avrilcustomizerRepeater.search($(this));
-        });
+            wp.avrilcustomizerRepeater.init();
 
-        $('.icp-auto').on('click', function () {
-            wp.avrilcustomizerRepeater.iconPickerToggle($(this));
-        });
+            $(document).on(
+                "keyup", ".iconpicker-search", function () {
+                    wp.avrilcustomizerRepeater.search($(this));
+                }
+            );
 
-        $(document).mouseup( function (e) {
-            var container = $('.iconpicker-popover');
+            $(document).on(
+                "click", ".icp-auto", function (e) {
 
-            if (!container.is(e.target)
-                && container.has(e.target).length === 0)
-            {
-                container.removeClass('iconpicker-visible');
-            }
-        });
+                    e.preventDefault();
 
-    });
+                    wp.avrilcustomizerRepeater.iconPickerToggle($(this));
+
+                }
+            );
+
+            $(document).on(
+                "mouseup", function (e) {
+
+                    $(".iconpicker-popover").each(
+                        function () {
+
+                            if (!$(this).is(e.target) 
+                                && $(this).has(e.target).length === 0
+                            ) {
+                                $(this).removeClass("iconpicker-visible");
+                            }
+
+                        }
+                    );
+
+                }
+            );
+
+        }
+    );
 
 })(jQuery);

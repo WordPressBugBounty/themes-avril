@@ -3,7 +3,7 @@
 
 .sidebar .widget .widget-title, .sidebar .widget .wp-block-search__label {
     border-bottom:1px solid  #e9e9ea;
-	display: block;
+    display: block;
 }
 
 .widget-none p,
@@ -714,11 +714,11 @@ form input[type="email"]:focus + .av-search-submit {
 
 .sidebar .wp-block-calendar table th {
     background: var(--sp-primary);
-	text-align: center;
+    text-align: center;
 }
 
 .sidebar .wp-block-calendar table td {
-	text-align: center;
+    text-align: center;
 }
 
 /* --/-- */
@@ -812,17 +812,17 @@ form input[type="email"]:focus + .av-search-submit {
     padding: 0px 15px;
     color: var(--sp-white);
     background-color: var(--sp-primary);
-	text-decoration: none;
+    text-decoration: none;
 }
 
 
 .wp-block-tag-cloud a {
     padding: 0 15px;
-	margin-top: 9px;
+    margin-top: 9px;
 }
 
 .wp-block-tag-cloud a:last-child {
-	margin-right: 0;
+    margin-right: 0;
 }
 
 .widget_social_widget li a {
@@ -1163,8 +1163,8 @@ form input[type="email"]:focus + .av-search-submit {
 
 .sidebar .widget-title, .sidebar .widget .wp-block-search__label {
     padding-bottom: 10px;
-	font-size: 20px;
-	font-weight: 700;
+    font-size: 20px;
+    font-weight: 700;
 }
 
 .sidebar-3 .sidebar {
@@ -1621,7 +1621,7 @@ ul.wp-block-social-links li a {
 }
 
 .sidebar .wp-block-social-links li:after{
-	content: none !important;
+    content: none !important;
 }
 
 .post-content .wp-block-image figcaption {
@@ -1735,7 +1735,7 @@ a.wp-block-file__button:focus {
 
 .wp-block-pullquote.has-text-color blockquote {
     border-color: inherit;
-}	
+}    
 
 blockquote {
     border-color: inherit !important;
@@ -1754,10 +1754,10 @@ blockquote {
 }
 
 .sidebar .widget .wp-block-search__label{
-	margin-bottom: 1rem;
+    margin-bottom: 1rem;
     line-height: 1.5;
 }
 
 .wp-block-image figcaption {
- 	margin-bottom: 0;
+     margin-bottom: 0;
 }

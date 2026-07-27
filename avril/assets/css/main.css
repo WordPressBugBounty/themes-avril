@@ -2,14 +2,14 @@
 *   [Table of contents]
 * ==========================================
     Theme Default Css
-    01.	Common Css
-    03.	Above Header
-    04.	Navigation
-    05.	Slider
-    06.	Info Section
-    07.	Heading Default
-    08.	Service Section
-    09.	Features Section
+    01.    Common Css
+    03.    Above Header
+    04.    Navigation
+    05.    Slider
+    06.    Info Section
+    07.    Heading Default
+    08.    Service Section
+    09.    Features Section
     10. CTA Section
     11. Blog Post Section
     12. Author-Area
@@ -162,7 +162,7 @@
 /*===== 04. Navigation Start =====*/
 
 .logo img {
-	max-width: 180px;
+    max-width: 180px;
 }
 
 .navbar-area .menubar .menu-wrap > li.active > a,
@@ -623,9 +623,9 @@
 }
 
 .service-item {
-	width: 100%;
+    width: 100%;
     min-height: 263px;
-	display: block;
+    display: block;
     padding: 47px 30px;
     position: relative;
     z-index: 0;
@@ -2462,9 +2462,9 @@ nav.woocommerce-pagination ul,
     font-weight: 600;
     padding: 0 .62em;
     line-height: 30px;
-	border-radius: 3px;
+    border-radius: 3px;
     color: var(--sp-white);
-	z-index: 9;
+    z-index: 9;
 }
 .bg-sticky.rounded-circle {
     border-radius: 100%;
@@ -2652,5 +2652,5 @@ animate-7 (Zoom)
 }
 
 blockquote.wp-block-quote.has-text-color p,blockquote.wp-block-quote.has-text-color p var,blockquote.wp-block-quote.has-text-color p cite,blockquote.wp-block-quote.has-text-color cite {
-	color: inherit;
+    color: inherit;
 }

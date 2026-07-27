@@ -1,55 +1,68 @@
 /*! WOW wow.js - v1.3.0 - 2016-10-04
  * https://wowjs.uk
  * Copyright (c) 2016 Thomas Grainger; Licensed MIT */ !(function (a, b) {
-    if ("function" == typeof define && define.amd) define(["module", "exports"], b);
-    else if ("undefined" != typeof exports) b(module, exports);
-    else {
+    if ("function" == typeof define && define.amd) { define(["module", "exports"], b);
+    } else if ("undefined" != typeof exports) { b(module, exports);
+    } else {
         var c = { exports: {} };
         b(c, c.exports), (a.WOW = c.exports);
     }
-})(this, function (a, b) {
-    "use strict";
-    function c(a, b) {
-        if (!(a instanceof b)) throw new TypeError("Cannot call a class as a function");
-    }
-    function d(a, b) {
-        return b.indexOf(a) >= 0;
-    }
-    function e(a, b) {
-        for (var c in b)
-            if (null == a[c]) {
-                var d = b[c];
-                a[c] = d;
+})(
+    this, function (a, b) {
+        "use strict";
+        function c(a, b)
+        {
+            if (!(a instanceof b)) { throw new TypeError("Cannot call a class as a function");
             }
-        return a;
-    }
-    function f(a) {
-        return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(a);
-    }
-    function g(a) {
-        var b = arguments.length <= 1 || void 0 === arguments[1] ? !1 : arguments[1],
+        }
+        function d(a, b)
+        {
+            return b.indexOf(a) >= 0;
+        }
+        function e(a, b)
+        {
+            for (var c in b) {
+                if (null == a[c]) {
+                    var d = b[c];
+                    a[c] = d;
+                }
+            }
+            return a;
+        }
+        function f(a)
+        {
+            return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(a);
+        }
+        function g(a)
+        {
+            var b = arguments.length <= 1 || void 0 === arguments[1] ? !1 : arguments[1],
             c = arguments.length <= 2 || void 0 === arguments[2] ? !1 : arguments[2],
             d = arguments.length <= 3 || void 0 === arguments[3] ? null : arguments[3],
             e = void 0;
-        return null != document.createEvent ? ((e = document.createEvent("CustomEvent")), e.initCustomEvent(a, b, c, d)) : null != document.createEventObject ? ((e = document.createEventObject()), (e.eventType = a)) : (e.eventName = a), e;
-    }
-    function h(a, b) {
-        null != a.dispatchEvent ? a.dispatchEvent(b) : b in (null != a) ? a[b]() : "on" + b in (null != a) && a["on" + b]();
-    }
-    function i(a, b, c) {
-        null != a.addEventListener ? a.addEventListener(b, c, !1) : null != a.attachEvent ? a.attachEvent("on" + b, c) : (a[b] = c);
-    }
-    function j(a, b, c) {
-        null != a.removeEventListener ? a.removeEventListener(b, c, !1) : null != a.detachEvent ? a.detachEvent("on" + b, c) : delete a[b];
-    }
-    function k() {
-        return "innerHeight" in window ? window.innerHeight : document.documentElement.clientHeight;
-    }
-    Object.defineProperty(b, "__esModule", { value: !0 });
-    var l,
+            return null != document.createEvent ? ((e = document.createEvent("CustomEvent")), e.initCustomEvent(a, b, c, d)) : null != document.createEventObject ? ((e = document.createEventObject()), (e.eventType = a)) : (e.eventName = a), e;
+        }
+        function h(a, b)
+        {
+            null != a.dispatchEvent ? a.dispatchEvent(b) : b in(null != a) ? a[b]() : "on" + b in(null != a) && a["on" + b]();
+        }
+        function i(a, b, c)
+        {
+            null != a.addEventListener ? a.addEventListener(b, c, !1) : null != a.attachEvent ? a.attachEvent("on" + b, c) : (a[b] = c);
+        }
+        function j(a, b, c)
+        {
+            null != a.removeEventListener ? a.removeEventListener(b, c, !1) : null != a.detachEvent ? a.detachEvent("on" + b, c) : delete a[b];
+        }
+        function k()
+        {
+            return "innerHeight" in window ? window.innerHeight : document.documentElement.clientHeight;
+        }
+        Object.defineProperty(b, "__esModule", { value: !0 });
+        var l,
         m,
         n = (function () {
-            function a(a, b) {
+            function a(a, b)
+            {
                 for (var c = 0; c < b.length; c++) {
                     var d = b[c];
                     (d.enumerable = d.enumerable || !1), (d.configurable = !0), "value" in d && (d.writable = !0), Object.defineProperty(a, d.key, d);
@@ -63,17 +76,20 @@
             window.WeakMap ||
             window.MozWeakMap ||
             (function () {
-                function a() {
+                function a()
+                {
                     c(this, a), (this.keys = []), (this.values = []);
                 }
                 return (
-                    n(a, [
+                    n(
+                        a, [
                         {
                             key: "get",
                             value: function (a) {
                                 for (var b = 0; b < this.keys.length; b++) {
                                     var c = this.keys[b];
-                                    if (c === a) return this.values[b];
+                                    if (c === a) { return this.values[b];
+                                    }
                                 }
                             },
                         },
@@ -82,12 +98,14 @@
                             value: function (a, b) {
                                 for (var c = 0; c < this.keys.length; c++) {
                                     var d = this.keys[c];
-                                    if (d === a) return (this.values[c] = b), this;
+                                    if (d === a) { return (this.values[c] = b), this;
+                                    }
                                 }
                                 return this.keys.push(a), this.values.push(b), this;
                             },
                         },
-                    ]),
+                        ]
+                    ),
                     a
                 );
             })(),
@@ -96,7 +114,8 @@
             window.WebkitMutationObserver ||
             window.MozMutationObserver ||
             ((m = l = (function () {
-                function a() {
+                function a()
+                {
                     c(this, a),
                         "undefined" != typeof console &&
                             null !== console &&
@@ -114,16 +133,19 @@
                     getPropertyValue: function (c) {
                         "float" === c && (c = "styleFloat"),
                             b.test(c) &&
-                                c.replace(b, function (a, b) {
-                                    return b.toUpperCase();
-                                });
+                                c.replace(
+                                    b, function (a, b) {
+                                        return b.toUpperCase();
+                                    }
+                                );
                         var d = a.currentStyle;
                         return (null != d ? d[c] : void 0) || null;
                     },
                 };
             },
         r = (function () {
-            function a() {
+            function a()
+            {
                 var b = arguments.length <= 0 || void 0 === arguments[0] ? {} : arguments[0];
                 c(this, a),
                     (this.defaults = { boxClass: "wow", animateClass: "animated", offset: 0, mobile: !0, live: !0, callback: null, scrollContainer: null, resetAnimation: !0 }),
@@ -131,10 +153,10 @@
                         return "requestAnimationFrame" in window
                             ? function (a) {
                                   return window.requestAnimationFrame(a);
-                              }
+                            }
                             : function (a) {
                                   return a();
-                              };
+                            };
                     })()),
                     (this.vendors = ["moz", "webkit"]),
                     (this.start = this.start.bind(this)),
@@ -148,7 +170,8 @@
                     (this.wowEvent = g(this.config.boxClass));
             }
             return (
-                n(a, [
+                n(
+                    a, [
                     {
                         key: "init",
                         value: function () {
@@ -159,23 +182,27 @@
                         key: "start",
                         value: function () {
                             var a = this;
-                            if (((this.stopped = !1), (this.boxes = [].slice.call(this.element.querySelectorAll("." + this.config.boxClass))), (this.all = this.boxes.slice(0)), this.boxes.length))
-                                if (this.disabled()) this.resetStyle();
-                                else
+                            if (((this.stopped = !1), (this.boxes = [].slice.call(this.element.querySelectorAll("." + this.config.boxClass))), (this.all = this.boxes.slice(0)), this.boxes.length)) {
+                                if (this.disabled()) { this.resetStyle();
+                                } else {
                                     for (var b = 0; b < this.boxes.length; b++) {
                                         var c = this.boxes[b];
                                         this.applyStyle(c, !0);
                                     }
-                            if (
-                                (this.disabled() || (i(this.config.scrollContainer || window, "scroll", this.scrollHandler), i(window, "resize", this.scrollHandler), (this.interval = setInterval(this.scrollCallback, 50))), this.config.live)
+                                }
+                            }
+                            if ((this.disabled() || (i(this.config.scrollContainer || window, "scroll", this.scrollHandler), i(window, "resize", this.scrollHandler), (this.interval = setInterval(this.scrollCallback, 50))), this.config.live)
                             ) {
-                                var d = new p(function (b) {
-                                    for (var c = 0; c < b.length; c++)
-                                        for (var d = b[c], e = 0; e < d.addedNodes.length; e++) {
-                                            var f = d.addedNodes[e];
-                                            a.doSync(f);
+                                var d = new p(
+                                    function (b) {
+                                        for (var c = 0; c < b.length; c++) {
+                                            for (var d = b[c], e = 0; e < d.addedNodes.length; e++) {
+                                                var f = d.addedNodes[e];
+                                                a.doSync(f);
+                                            }
                                         }
-                                });
+                                    }
+                                );
                                 d.observe(document.body, { childList: !0, subtree: !0 });
                             }
                         },
@@ -225,9 +252,11 @@
                                 d = a.getAttribute("data-wow-duration"),
                                 e = a.getAttribute("data-wow-delay"),
                                 f = a.getAttribute("data-wow-iteration");
-                            return this.animate(function () {
-                                return c.customStyle(a, b, d, e, f);
-                            });
+                            return this.animate(
+                                function () {
+                                    return c.customStyle(a, b, d, e, f);
+                                }
+                            );
                         },
                     },
                     {
@@ -265,7 +294,7 @@
                     {
                         key: "vendorSet",
                         value: function (a, b) {
-                            for (var c in b)
+                            for (var c in b) {
                                 if (b.hasOwnProperty(c)) {
                                     var d = b[c];
                                     a["" + c] = d;
@@ -274,6 +303,7 @@
                                         a["" + f + c.charAt(0).toUpperCase() + c.substr(1)] = d;
                                     }
                                 }
+                            }
                         },
                     },
                     {
@@ -338,8 +368,10 @@
                     {
                         key: "offsetTop",
                         value: function (a) {
-                            for (; void 0 === a.offsetTop; ) a = a.parentNode;
-                            for (var b = a.offsetTop; a.offsetParent; ) (a = a.offsetParent), (b += a.offsetTop);
+                            for (; void 0 === a.offsetTop; ) { a = a.parentNode;
+                            }
+                            for (var b = a.offsetTop; a.offsetParent; ) {(a = a.offsetParent), (b += a.offsetTop);
+                            }
                             return b;
                         },
                     },
@@ -360,11 +392,13 @@
                             return !this.config.mobile && f(navigator.userAgent);
                         },
                     },
-                ]),
+                    ]
+                ),
                 a
             );
         })();
-    (b["default"] = r), (a.exports = b["default"]);
-});
+        (b["default"] = r), (a.exports = b["default"]);
+    }
+);
 
 new WOW().init();
