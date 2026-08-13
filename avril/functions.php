@@ -6,7 +6,7 @@ if (! function_exists('avril_setup') ) :
         /**
          * Define Theme Version
          */
-        define('AVRIL_THEME_VERSION', '21.9');
+        define('AVRIL_THEME_VERSION', '22.0');
 
         // Root path/URI.
         define('AVRIL_PARENT_DIR', get_template_directory());
